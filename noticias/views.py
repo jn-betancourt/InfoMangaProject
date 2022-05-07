@@ -11,5 +11,5 @@ class HomePageView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["noticias"] = Noticia.objects.filter().order_by("-pub_date")[:6]
+        context["noticias"] = Noticia.objects.filter().order_by("-pub_date")[:1]
         return context
