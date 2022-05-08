@@ -1,16 +1,37 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>InfoManga</title>
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous"
+  />
+
 </head>
-<body>
-    {% for noticia in noticias %}
-    <h1>
-    <a href="{{noticia.link}}">
-        {{noticia.title}}
-    </a>
-    </h1>
-    {% endfor %}
-</body>
+    <main>
+        {% for noticia in noticias %}
+        <section class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md2 my-auto">
+                    <img
+                        src="{{noticia.image}}"
+                        class="img-fluid ml-3 my-3"
+                        alt="{{noticia.pag_title}}"
+                        />
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body ml-3">
+                        <h3 class="card-title">{{ noticia.title }}</h3>
+                        <p class="card-text">{{ noticia.description }}</p>
+                        <a href="{{ noticia.link }}"><p>
+                            Hecha un vistaso a la noticia!!
+                        </p></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </html>
