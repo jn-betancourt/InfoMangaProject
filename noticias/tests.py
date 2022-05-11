@@ -11,6 +11,7 @@ class NoticiasTest(TestCase):
     def setUp(self) -> None:
         self.noticia = Noticia.objects.create(
             title="noticia de ultima hora",
+            category="Manga",
             description="Segunda temporada comfirmada",
             pub_date=timezone.now(),
             image=r"https://mi_image.com",
@@ -22,6 +23,7 @@ class NoticiasTest(TestCase):
         self.assertEqual(self.noticia.title, "noticia de ultima hora")
         self.assertEqual(self.noticia.description, "Segunda temporada comfirmada")
         self.assertEqual(self.noticia.guid, "pb123456")
+        self.assertEqual(self.noticia.category, "Manga")
 
     def test_str_representation(self):
         self.assertEqual(

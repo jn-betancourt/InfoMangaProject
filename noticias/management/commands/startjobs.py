@@ -40,6 +40,7 @@ def save_new_episodes(feed):
         if not Noticia.objects.filter(guid=item.guid).exists():
             noticia = Noticia(
                 title=item.title,
+                category=item.category,
                 pag_title=noti_title,
                 description=item.description,
                 pub_date=parser.parse(item.published),
@@ -77,7 +78,7 @@ class Command(BaseCommand):
         scheduler.add_job(
             fetch_somokudasai_noticia,
             trigger="interval",
-            minutes=2,
+            days=1,
             id="Somos kudasai",
             max_instances=1,
             replace_existing=True,
