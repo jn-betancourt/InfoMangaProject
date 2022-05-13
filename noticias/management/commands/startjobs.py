@@ -78,7 +78,7 @@ class Command(BaseCommand):
         scheduler.add_job(
             fetch_somokudasai_noticia,
             trigger="interval",
-            days=1,
+            day=1,
             id="Somos kudasai",
             max_instances=1,
             replace_existing=True,
