@@ -1,2 +1,2 @@
-web: gunicorn InfoManga.wsgi --log-file-
+web: gunicorn InfoManga.wsgi 
 clock: python startjobs.py
