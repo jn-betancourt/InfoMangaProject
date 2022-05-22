@@ -1,2 +1,2 @@
 web: gunicorn InfoManga.wsgi 
-clock: python startjobs.py
+clock: python noticias/management/startjobs.py
