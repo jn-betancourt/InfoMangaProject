@@ -60,6 +60,15 @@ def fetch_somokudasai_noticia():
     save_new_episodes(_feed)
 
 
+def fetch_viraljodas_noticias():
+    """
+    Toma una nueva noticia de su link
+    :return: _feed
+    """
+    _feed = feedparser.parse("https://viraljodas.com/noticias/anime/feed/")
+    save_new_episodes(_feed)
+
+
 def delete_old_job_executions(max_age=172_800):
     """Deletes all the schedulerjob execution logs older tha 'max_age'"""
     DjangoJobExecution.objects.delete_old_job_executions(max_age)
@@ -84,6 +93,17 @@ class Command(BaseCommand):
             replace_existing=True,
         )
         login.info("Added job: Somos kudasai")
+
+        # agregar el trabajo "fetch_virajodas_noticas"
+        scheduler.add_job(
+            fetch_viraljodas_noticias,
+            trigger="interval",
+            hours=24,
+            id="Viral jodas",
+            max_instances=1,
+            replace_existing=True,
+        )
+        login.info("Added job: Viral jodas")
 
         # Agrega un trabajo "delete_old_job" para eliminar viejos trabajos
         scheduler.add_job(
