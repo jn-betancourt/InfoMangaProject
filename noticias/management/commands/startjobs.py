@@ -69,10 +69,10 @@ def fetch_viraljodas_noticias():
     save_new_episodes(_feed)
 
 
-def delete_old_job_executions(max_age=172_800):
+def delete_old_job_executions(max_age=604_800):
     """Deletes all the schedulerjob execution logs older tha 'max_age'"""
     DjangoJobExecution.objects.delete_old_job_executions(max_age)
-
+0
 
 class Command(BaseCommand):
     """
