@@ -30,7 +30,7 @@ def save_new_episodes(feed):
     si no existe crea un nuevo objeto "noticia",
     de lo contrario la obvia.
 
-    :arg: feed: requere un feedparser
+    :arg: feed: requiere un feedparser
     """
 
     noti_title = feed.channel.title
@@ -87,7 +87,7 @@ class Command(BaseCommand):
         scheduler.add_job(
             fetch_somokudasai_noticia,
             trigger="interval",
-            hours=24,
+            days=1,
             id="Somos kudasai",
             max_instances=1,
             replace_existing=True,
@@ -98,7 +98,7 @@ class Command(BaseCommand):
         scheduler.add_job(
             fetch_viraljodas_noticias,
             trigger="interval",
-            hours=24,
+            days=1,
             id="Viral jodas",
             max_instances=1,
             replace_existing=True,
