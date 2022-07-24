@@ -65,7 +65,7 @@ def fetch_viraljodas_noticias():
     Toma una nueva noticia de su link
     :return: _feed
     """
-    _feed = feedparser.parse("https://viraljodas.com/noticias/anime/feed/")
+    _feed = feedparser.parse("https://viraljodas.com/noticias/feed/")
     save_new_episodes(_feed)
 
 
