@@ -11,5 +11,27 @@ class HomePageView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["noticias"] = Noticia.objects.filter().order_by("-pub_date")[:5]
+        context["noticias"] = Noticia.objects.filter().order_by("-pub_date")
+        return context
+
+
+class AnimePageView(ListView):
+
+    template_name = "anime.html"
+    model = Noticia
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["noticias"] = Noticia.objects.filter().order_by("-pub_date")
+        return context
+
+
+class MangaPageView(ListView):
+
+    template_name = "manga.html"
+    model = Noticia
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["noticias"] = Noticia.objects.filter().order_by("-pub_date")
         return context
