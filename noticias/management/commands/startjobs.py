@@ -34,6 +34,7 @@ def save_new_episodes(feed):
     """
 
     noti_title = feed.channel.title
+    link_page = feed.channel.link
     noti_image = feed.channel.image["href"]
 
     for item in feed.entries:
@@ -47,6 +48,7 @@ def save_new_episodes(feed):
                 image=noti_image,
                 guid=item.guid,
                 link=item.link,
+                link_page=link_page,
             )
             noticia.save()
 

@@ -16,7 +16,8 @@ class NoticiasTest(TestCase):
             pub_date=timezone.now(),
             image=r"https://mi_image.com",
             guid="pb123456",
-            link="https://mi_pagina.com"
+            link="https://mi_pagina.com/noticia1",
+            link_page="https://mi_pagina.com"
         )
 
     def test_atributes(self):
@@ -24,6 +25,7 @@ class NoticiasTest(TestCase):
         self.assertEqual(self.noticia.description, "Segunda temporada comfirmada")
         self.assertEqual(self.noticia.guid, "pb123456")
         self.assertEqual(self.noticia.category, "Manga")
+        self.assertEqual(self.noticia.link_page, "https://mi_pagina.com")
 
     def test_str_representation(self):
         self.assertEqual(
@@ -33,6 +35,14 @@ class NoticiasTest(TestCase):
 
     def test_homepage_status(self):
         response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+
+    def test_anime_status(self):
+        response = self.client.get("/anime")
+        self.assertEqual(response.status_code, 200)
+
+    def test_manga_status(self):
+        response = self.client.get("/manga")
         self.assertEqual(response.status_code, 200)
 
     def test_homepage_uses_correct(self):
