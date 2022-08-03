@@ -1,5 +1,3 @@
-from pyexpat import model
-from unicodedata import category
 from django.db import models
 
 # Create your models here.
@@ -15,7 +13,6 @@ class Noticia(models.Model):
     image = models.URLField()
     guid = models.CharField(max_length=50)
     link = models.URLField()
-    link_page = models.URLField()
 
     def __str__(self):
         return f"{self.title}: {self.description}"
