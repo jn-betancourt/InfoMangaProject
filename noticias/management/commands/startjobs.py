@@ -43,7 +43,7 @@ def save_new_episodes(feed):
                 title=item.title,
                 category=item.category,
                 pag_title=noti_title,
-                description=item.description,
+                description=item.description.encoding('utf-8'),
                 pub_date=parser.parse(item.published),
                 image=noti_image,
                 guid=item.guid,
