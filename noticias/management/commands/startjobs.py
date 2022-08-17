@@ -39,11 +39,13 @@ def save_new_episodes(feed):
 
     for item in feed.entries:
         if not Noticia.objects.filter(guid=item.guid).exists():
+            noti_description = item.description
+            noti_description.encode('utf-8')
             noticia = Noticia(
                 title=item.title,
                 category=item.category,
                 pag_title=noti_title,
-                description=item.description.encoding('utf-8'),
+                description=noti_description,
                 pub_date=parser.parse(item.published),
                 image=noti_image,
                 guid=item.guid,
