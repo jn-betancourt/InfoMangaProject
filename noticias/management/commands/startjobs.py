@@ -46,7 +46,7 @@ def save_new_episodes(feed):
                 pub_date=parser.parse(item.published),
                 image=noti_image,
                 guid=item.guid,
-                link=item.link,
+                link=item.link, 
             )
             noticia.save()
 
