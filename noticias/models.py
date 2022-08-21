@@ -12,7 +12,6 @@ class Noticia(models.Model):
     pub_date = models.DateTimeField()
     image = models.URLField()
     guid = models.CharField(max_length=50)
-    link = models.URLField()
 
     def __str__(self):
         return f"{self.title}: {self.description}"

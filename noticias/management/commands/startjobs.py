@@ -47,7 +47,6 @@ def save_new_episodes(feed):
                 image=noti_image,
                 guid=item.guid,
                 link=item.link,
-                link_page=link_page,
             )
             noticia.save()
 
