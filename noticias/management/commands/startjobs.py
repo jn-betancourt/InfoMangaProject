@@ -21,7 +21,6 @@ from noticias.models import Noticia
 
 login = logging.getLogger(__name__)
 
-
 def save_new_episodes(feed):
 
     """
@@ -39,13 +38,11 @@ def save_new_episodes(feed):
 
     for item in feed.entries:
         if not Noticia.objects.filter(guid=item.guid).exists():
-            noti_description = item.description
-            noti_description.encode('utf-8')
             noticia = Noticia(
                 title=item.title,
                 category=item.category,
                 pag_title=noti_title,
-                description=noti_description,
+                description=item.description,
                 pub_date=parser.parse(item.published),
                 image=noti_image,
                 guid=item.guid,
